@@ -221,26 +221,30 @@ contact_person
 ^^^^^^^^^^^^^^
 
 This is only used by *make_metadata.py* when it constructs the metadata for
-the service described by the configuration file.
-This is where you describe who can be contacted if questions arise
-about the service or if support is needed. The possible types are according to
-the standard **technical**, **support**, **administrative**, **billing**
-and **other**.::
+the service described by the configuration file. This is where you describe
+who can be contacted if questions arise about the service or if support is
+needed.
+
+Note that `contact_type` is required for a valid schema. The possible types
+are according to the standard **technical**, **support**, **administrative**,
+**billing** and **other**::
 
     contact_person: [
         {
-            "givenname": "Derek",
-            "surname": "Jeter",
+            "given_name": "Derek",
+            "sur_name": "Jeter",
             "company": "Example Co.",
-            "mail": ["jeter@example.com"],
-            "type": "technical",
+            "email_address": ["jeter@example.com"],
+            "telephone_number": ["123-456-789", "+1 234 567 89"]
+            "contact_type": "technical",
         },
         {
-            "givenname": "Joe",
-            "surname": "Girardi",
+            "given_name": "Joe",
+            "sur_name": "Girardi",
             "company": "Example Co.",
-            "mail": "girardi@example.com",
-            "type": "administrative",
+            "email_address": ["girardi@example.com", "admin@example.com"]
+            "telephone_number": ["987-654-321"]
+            "contact_type": "administrative",
         },
     ]
 
@@ -1481,11 +1485,11 @@ We start with a simple but fairly complete Service provider configuration::
         }
         "contact_person": [
             {
-                "givenname": "Roland",
-                "surname": "Hedberg",
-                "phone": "+46 90510",
-                "mail": "roland@example.com",
-                "type": "technical",
+                "given_name": "Roland",
+                "sur_name": "Hedberg",
+                "telephone_number": ["+46 90510"],
+                "email_address": ["roland@example.com"],
+                "contact_type": "technical",
             },
         ]
     }
@@ -1539,11 +1543,11 @@ A slightly more complex configuration::
         }
         "contact_person": [
             {
-                "givenname": "Roland",
-                "surname": "Hedberg",
-                "phone": "+46 90510",
-                "mail": "roland@example.com",
-                "type": "technical",
+                "given_name": "Roland",
+                "sur_name": "Hedberg",
+                "telephone_number": ["+46 90510"],
+                "email_address": ["roland@example.com"],
+                "contact_type": "technical",
             },
         ]
     }
